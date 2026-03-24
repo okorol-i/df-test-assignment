@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dataforest Test Frontend</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 2rem;
+      }
+      .card {
+        max-width: 720px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 1.5rem;
+      }
+      button {
+        padding: 0.6rem 1rem;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        background: #2f6fed;
+        color: #fff;
+      }
+      pre {
+        background: #f7f7f7;
+        padding: 1rem;
+        border-radius: 6px;
+        overflow: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h1>Dataforest Test App</h1>
+      <p>Frontend served by Nginx, backend proxied via <code>/api</code>.</p>
+      <button id="check-health">Check backend health</button>
+      <pre id="result">Press the button to call /api/health</pre>
+    </div>
+
+    <script>
+      const button = document.getElementById("check-health");
+      const result = document.getElementById("result");
+
+      button.addEventListener("click", async () => {
+        result.textContent = "Loading...";
+        try {
+          const response = await fetch("/api/health");
+          const data = await response.json();
+          result.textContent = JSON.stringify(data, null, 2);
+        } catch (error) {
+          result.textContent = `Request failed: ${error.message}`;
+        }
+      });
+    </script>
+  </body>
+</html>
