@@ -1,0 +1,7 @@
+# Ignore terraform binaries
+.terraform*
+.env
+*.tfstate
+*.tfstate.*
+crash.log
+.DS_Store

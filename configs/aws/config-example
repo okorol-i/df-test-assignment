@@ -1,0 +1,17 @@
+[default]
+region = us-east-1
+output = json
+
+[profile df-cust-example]
+sso_session = example_sso_session
+sso_account_id = example_account_id
+sso_role_name = AWSAdministratorAccess
+region = us-east-1
+output = json
+
+[profile df-svc-root]
+sso_session = example_sso_session
+sso_account_id = example_root_account_id
+sso_role_name = AWSAdministratorAccess
+region = us-east-1
+output = json
