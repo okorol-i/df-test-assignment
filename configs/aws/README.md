@@ -1,10 +1,10 @@
-# AWS Config
+## AWS CLI Config Example
 
-Contains example awscli configuration file to use with SSO
+This folder contains an example AWS CLI config file (SSO-based) you can use for local development.
 
-# Usage
+### Usage
+
 ```sh
 export AWS_PROFILE=chosen_profile
-
-aws s3 ls
+aws sts get-caller-identity
 ```
